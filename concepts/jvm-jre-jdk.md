@@ -2,6 +2,7 @@
 JVM languages: Java, Kotlin, or Scala
 Program compiled to bytecode is almost always platform-independent.
 ```
+![image](https://github.com/user-attachments/assets/e927de80-b140-47bc-a2ec-e992daec1b93)
 
 # Java Virtual Machine (JVM)
 A virtual simulation of a physical computer that executes the Java bytecode, which comes after the source code compilation. <br>
