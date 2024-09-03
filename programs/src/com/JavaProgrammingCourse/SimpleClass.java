@@ -3,6 +3,7 @@ package com.JavaProgrammingCourse;
 public class SimpleClass {
 
     public static void main(String []args) {
+        char ch = '';
         System.out.println("hello everybody");
         Student obj = new Student();
 
