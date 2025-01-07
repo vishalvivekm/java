@@ -1,3 +1,5 @@
+// 4 approaches
+
 class Solution {
     public int majorityElement(int[] nums) {
         // HashMap<Integer, Integer> map = new HashMap<>();
@@ -40,26 +42,50 @@ class Solution {
     
     // Moore's voting algo
 
-    int count = 0, candidate = 0;
+    // int count = 0, candidate = 0;
 
-    for(int ele: nums){
-        if (count == 0){
-            candidate = ele;
-        }
-        count += (ele == candidate) ? 1 : -1;
-    }
+    // for(int ele: nums){
+    //     if (count == 0){
+    //         candidate = ele;
+    //     }
+    //     count += (ele == candidate) ? 1 : -1;
+    // }
     
-    // check to make sure the candidate is indeed the majority element i.e
-    // appearing > floor of N / 2
-    // not necessary for this question, as it's guranteed
-    // so candidate at this point be the answer
-    int count1 = 0;
-    for(int el: nums){
-        if(el == candidate) count1++;
-       // if(count1 > nums.length / 2) return candidate;
-    }
-    if(count1 > (nums.length / 2)) return candidate;
+    // // check to make sure the candidate is indeed the majority element i.e
+    // // appearing > floor of N / 2
+    // // not necessary for this question, as it's guranteed
+    // // so candidate at this point be the answer
+    // int count1 = 0;
+    // for(int el: nums){
+    //     if(el == candidate) count1++;
+    //    // if(count1 > nums.length / 2) return candidate;
+    // }
+    // if(count1 > (nums.length / 2)) return candidate;
 
-    return -1;
+    // return -1;
+
+    // bit manipulation
+
+    int majority = 0;
+        int n = nums.length;
+
+        // Iterate through each bit position (0 to 31 for a 32-bit integer)
+        for (int i = 0; i < 32; i++) {
+            int count = 0;
+
+            // Count how many numbers have the i-th bit set
+            for (int num : nums) {
+                if ((num & (1 << i)) != 0) {
+                    count++;
+                }
+            }
+
+            // If count is more than half of n, set the i-th bit of the majority element
+            if (count > n / 2) {
+                majority |= (1 << i);
+            }
+        }
+
+        return majority;
 }
 }
