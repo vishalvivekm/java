@@ -1,4 +1,8 @@
-class Solution {
+package slidingwindow.MaxSubArrSumDistinct;
+
+import java.util.HashSet;
+
+public class MaximumSubarraySumDistinct {
     public long maximumSubarraySum(int[] nums, int k) {
         
         long maxSum = 0;
